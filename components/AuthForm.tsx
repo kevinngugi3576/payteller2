@@ -17,7 +17,7 @@ import { SignIn, SignUp } from "@/lib/actions/user.actions";
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState<string | null>("");
 
   const formSchema = authFormSchema(type);
 
@@ -66,6 +66,7 @@ const AuthForm = ({ type }: { type: string }) => {
           router.push("/Home");
         } else {
           setError(error);
+          setError("")
         }
       }
 
