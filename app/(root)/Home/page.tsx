@@ -1,4 +1,6 @@
-"use server";
+// By default, Next.js considers components to be server components in the App Router
+// So no need for 'use server' explicitly, but we can mark this as server-side
+
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import HeaderBox from "@/components/HeaderBox";
 import React from "react";
@@ -7,11 +9,12 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
 import { dummyBanks, transactions } from "@/constants";
 
-// Force the page to be rendered dynamically
-export const dynamic = 'force-dynamic';
+// No need for `export const dynamic = 'force-dynamic';` anymore since we are now enforcing the split
 
+// Server Component
 const Home = async () => {
   const loggedIn = await getLoggedInUser();
+
   return (
     <section className="home">
       <div className="home-content">
@@ -28,7 +31,7 @@ const Home = async () => {
             totalCurrentBalance={655544.0}
           />
         </header>
-        <div className="">
+        <div>
           Recent transactions
           <TransactionsTable transactions={transactions} />
         </div>
