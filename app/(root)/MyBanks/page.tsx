@@ -3,6 +3,8 @@
 import Landing from "@/components/Landing";
 import React, { Suspense, useEffect, useState } from "react";
 
+export const dynamic = 'force-dynamic';
+
 const MyBanks = () => {
   const [loading, setLoading] = useState(true);
 

@@ -1,3 +1,4 @@
+"use server";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import HeaderBox from "@/components/HeaderBox";
 import React from "react";
@@ -6,8 +7,10 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
 import { dummyBanks, transactions } from "@/constants";
 
-const Home = async () => { 
+// Force the page to be rendered dynamically
+export const dynamic = 'force-dynamic';
 
+const Home = async () => {
   const loggedIn = await getLoggedInUser();
   return (
     <section className="home">
