@@ -1,4 +1,4 @@
-
+"use client"
 import Landing from "@/components/Landing";
 import React, { Suspense, useEffect, useState } from "react";
 

@@ -1,6 +1,8 @@
+"use client"
 import Landing from "@/components/Landing";
 import React, { Suspense, useEffect, useState } from "react";
 
+export const dynamic = 'force-dynamic'; 
 
 const PaymentTransfer = () => {
   const [loading, setLoading] = useState(true);

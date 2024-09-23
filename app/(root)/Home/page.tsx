@@ -9,7 +9,8 @@ import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
 import { dummyBanks, transactions } from "@/constants";
 
-// No need for `export const dynamic = 'force-dynamic';` anymore since we are now enforcing the split
+// Force dynamic rendering to prevent Vercel from statically optimizing
+export const dynamic = 'force-dynamic'; 
 
 // Server Component
 const Home = async () => {
