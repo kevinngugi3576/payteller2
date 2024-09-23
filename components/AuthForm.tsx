@@ -17,7 +17,7 @@ import { SignIn, SignUp } from "@/lib/actions/user.actions";
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError]  = useState<string>("")
+  const [error, setError] = useState<string>("");
 
   const formSchema = authFormSchema(type);
 
@@ -30,7 +30,6 @@ const AuthForm = ({ type }: { type: string }) => {
 
     try {
       if (type === "sign-up") {
-        
         const {
           email,
           password,
@@ -60,14 +59,13 @@ const AuthForm = ({ type }: { type: string }) => {
           password,
           firstname: firstname,
           lastname: lastname,
-          
         });
 
         if (newUser) {
           // Redirect to the homepage on successful sign-up
           router.push("/Home");
-        }else {
-          setError(error)
+        } else {
+          setError(error);
         }
       }
 
@@ -111,60 +109,60 @@ const AuthForm = ({ type }: { type: string }) => {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {type === "sign-up" && (
-  <>
-    <div className="flex gap-4">
-      <CustomInput
-        control={form.control}
-        name="firstname"
-        label="FirstName"
-        placeholder="Enter your firstName"
-        id="firstname"
-        autocomplete="given-name"
-      />
-      <CustomInput
-        control={form.control}
-        name="lastname"
-        label="LastName"
-        placeholder="Enter your lastName"
-        id="lastname"
-        autocomplete="family-name"
-      />
-    </div>
-    <CustomInput
-      control={form.control}
-      name="city"
-      label="City"
-      placeholder="Enter your city"
-      id="city"
-      autocomplete="address-level2"
-    />
-    <CustomInput
-      control={form.control}
-      name="address1"
-      label="Address1"
-      placeholder="Enter your address"
-      id="address1"
-      autocomplete="street-address"
-    />
-    <div className="flex gap-4">
-      <CustomInput
-        control={form.control}
-        name="state"
-        label="State"
-        placeholder="State"
-        id="state"
-        autocomplete="address-level1"
-      />
-      <CustomInput
-        control={form.control}
-        name="postalCode"
-        label="PostalCode"
-        placeholder="Example 20100"
-        id="postalCode"
-        autocomplete="postal-code"
-      />
-    </div>
+          {type === "sign-up" && (
+            <>
+              <div className="flex gap-4">
+                <CustomInput
+                  control={form.control}
+                  name="firstname"
+                  label="FirstName"
+                  placeholder="Enter your firstName"
+                  id="firstname"
+                  autocomplete="given-name"
+                />
+                <CustomInput
+                  control={form.control}
+                  name="lastname"
+                  label="LastName"
+                  placeholder="Enter your lastName"
+                  id="lastname"
+                  autocomplete="family-name"
+                />
+              </div>
+              <CustomInput
+                control={form.control}
+                name="city"
+                label="City"
+                placeholder="Enter your city"
+                id="city"
+                autocomplete="address-level2"
+              />
+              <CustomInput
+                control={form.control}
+                name="address1"
+                label="Address1"
+                placeholder="Enter your address"
+                id="address1"
+                autocomplete="street-address"
+              />
+              <div className="flex gap-4">
+                <CustomInput
+                  control={form.control}
+                  name="state"
+                  label="State"
+                  placeholder="State"
+                  id="state"
+                  autocomplete="address-level1"
+                />
+                <CustomInput
+                  control={form.control}
+                  name="postalCode"
+                  label="PostalCode"
+                  placeholder="Example 20100"
+                  id="postalCode"
+                  autocomplete="postal-code"
+                />
+              </div>
               <CustomInput
                 control={form.control}
                 name="DateOfBirth"
@@ -209,8 +207,14 @@ const AuthForm = ({ type }: { type: string }) => {
               ) : (
                 "Sign-up"
               )}
-              {error ?  "There is a problem with the sign-up" : "success"}
             </Button>
+            {error ? (
+              <div className="text-red-900">
+                There is a problem with the sign-up
+              </div>
+            ) : (
+              "success"
+            )}
           </div>
         </form>
       </Form>
@@ -231,6 +235,5 @@ const AuthForm = ({ type }: { type: string }) => {
     </section>
   );
 };
-
 
 export default AuthForm;
