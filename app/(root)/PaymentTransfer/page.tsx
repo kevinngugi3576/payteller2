@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic'; // This forces dynamic server-side rendering
 
 "use client"
 import Landing from "@/components/Landing";
