@@ -1,3 +1,6 @@
+
+export const dynamic = 'force-dynamic'; // Ensure dynamic rendering
+
 "use client"
 import Landing from "@/components/Landing";
 import React, { Suspense, useEffect, useState } from "react";

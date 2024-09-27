@@ -1,5 +1,4 @@
-// By default, Next.js considers components to be server components in the App Router
-// So no need for 'use server' explicitly, but we can mark this as server-side
+export const dynamic = 'force-dynamic'; // This forces dynamic server-side rendering
 
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import HeaderBox from "@/components/HeaderBox";
@@ -8,9 +7,6 @@ import RightSidebar from "@/components/RightSidebar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import TransactionsTable from "@/components/TransactionsTable";
 import { dummyBanks, transactions } from "@/constants";
-
-// Force dynamic rendering to prevent Vercel from statically optimizing
-export const dynamic = 'force-dynamic'; 
 
 // Server Component
 const Home = async () => {
