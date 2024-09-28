@@ -1,5 +1,4 @@
 export const dynamic = 'force-dynamic'; // This forces dynamic server-side rendering
-
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import HeaderBox from "@/components/HeaderBox";
 import React from "react";
