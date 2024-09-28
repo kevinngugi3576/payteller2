@@ -17,7 +17,6 @@ import { SignIn, SignUp } from "@/lib/actions/user.actions";
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>("");
 
   const formSchema = authFormSchema(type);
 
@@ -64,10 +63,7 @@ const AuthForm = ({ type }: { type: string }) => {
         if (newUser) {
           // Redirect to the homepage on successful sign-up
           router.push("/Home");
-        } else {
-          setError(error);
-          setError("")
-        }
+        } 
       }
 
       if (type === "sign-in") {
@@ -209,13 +205,7 @@ const AuthForm = ({ type }: { type: string }) => {
                 "Sign-up"
               )}
             </Button>
-            {error ? (
-              <div className="text-red-900">
-                There is a problem with the sign-up
-              </div>
-            ) : (
-              "success"
-            )}
+           
           </div>
         </form>
       </Form>
